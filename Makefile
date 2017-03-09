@@ -1,5 +1,5 @@
 PKG_NAME := ocamlbuild
-URL := https://github.com/ocaml/ocamlbuild/archive/0.9.3.tar.gz
-ARCHIVES :=
+URL := http://github.com/ocaml/ocamlbuild/archive/0.11.0.tar.gz
+
 
 include ../common/Makefile.common
