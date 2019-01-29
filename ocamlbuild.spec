@@ -4,7 +4,7 @@
 #
 Name     : ocamlbuild
 Version  : 0.13.1
-Release  : 6
+Release  : 7
 URL      : https://github.com/ocaml/ocamlbuild/archive/0.13.1.tar.gz
 Source0  : https://github.com/ocaml/ocamlbuild/archive/0.13.1.tar.gz
 Summary  : No detailed summary available
@@ -55,7 +55,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1548706148
+export SOURCE_DATE_EPOCH=1548799481
 ## make_prepend content
 make configure
 ## make_prepend end
@@ -63,12 +63,16 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1548706148
+export SOURCE_DATE_EPOCH=1548799481
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ocamlbuild
 cp LICENSE %{buildroot}/usr/share/package-licenses/ocamlbuild/LICENSE
 cp manual/LICENSE %{buildroot}/usr/share/package-licenses/ocamlbuild/manual_LICENSE
 %make_install
+## install_append content
+mkdir -p %{buildroot}/usr/share
+mv %{buildroot}/usr/man/ %{buildroot}/usr/share
+## install_append end
 
 %files
 %defattr(-,root,root,-)
