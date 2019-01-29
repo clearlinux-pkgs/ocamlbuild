@@ -4,7 +4,7 @@
 #
 Name     : ocamlbuild
 Version  : 0.13.1
-Release  : 5
+Release  : 6
 URL      : https://github.com/ocaml/ocamlbuild/archive/0.13.1.tar.gz
 Source0  : https://github.com/ocaml/ocamlbuild/archive/0.13.1.tar.gz
 Summary  : No detailed summary available
