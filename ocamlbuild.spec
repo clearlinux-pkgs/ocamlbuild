@@ -4,7 +4,7 @@
 #
 Name     : ocamlbuild
 Version  : 0.13.1
-Release  : 9
+Release  : 10
 URL      : https://github.com/ocaml/ocamlbuild/archive/0.13.1.tar.gz
 Source0  : https://github.com/ocaml/ocamlbuild/archive/0.13.1.tar.gz
 Summary  : No detailed summary available
@@ -17,15 +17,14 @@ BuildRequires : ocaml
 BuildRequires : util-linux
 
 %description
-The organization of tests is the following:
-- internal.ml contains the tests that should be runnable from a bare
-OCaml installation -- always passing the -no-ocamlfind option.
+# OCamlbuild #
+OCamlbuild is a generic build tool, that has built-in rules for
+building OCaml library and programs.
 
 %package bin
 Summary: bin components for the ocamlbuild package.
 Group: Binaries
 Requires: ocamlbuild-license = %{version}-%{release}
-Requires: ocamlbuild-man = %{version}-%{release}
 
 %description bin
 bin components for the ocamlbuild package.
@@ -54,8 +53,13 @@ man components for the ocamlbuild package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1548799481
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1566933835
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 ## make_prepend content
 make configure
 ## make_prepend end
@@ -63,7 +67,7 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1548799481
+export SOURCE_DATE_EPOCH=1566933835
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ocamlbuild
 cp LICENSE %{buildroot}/usr/share/package-licenses/ocamlbuild/LICENSE
