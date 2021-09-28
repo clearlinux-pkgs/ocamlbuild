@@ -4,7 +4,7 @@
 #
 Name     : ocamlbuild
 Version  : 0.14.0
-Release  : 12
+Release  : 13
 URL      : https://github.com/ocaml/ocamlbuild/archive/0.14.0/ocamlbuild-0.14.0.tar.gz
 Source0  : https://github.com/ocaml/ocamlbuild/archive/0.14.0/ocamlbuild-0.14.0.tar.gz
 Summary  : No detailed summary available
@@ -55,11 +55,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578637717
+export SOURCE_DATE_EPOCH=1632865539
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 ## make_prepend content
 make configure
@@ -68,16 +68,12 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1578637717
+export SOURCE_DATE_EPOCH=1632865539
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ocamlbuild
 cp %{_builddir}/ocamlbuild-0.14.0/LICENSE %{buildroot}/usr/share/package-licenses/ocamlbuild/4f45cac6a3bbc25490c5851cb42b4571a9ffdbc3
 cp %{_builddir}/ocamlbuild-0.14.0/manual/LICENSE %{buildroot}/usr/share/package-licenses/ocamlbuild/8ea76c5467718d2d72085daf47de6c39b3908212
 %make_install
-## install_append content
-mkdir -p %{buildroot}/usr/share
-mv %{buildroot}/usr/man/ %{buildroot}/usr/share
-## install_append end
 
 %files
 %defattr(-,root,root,-)
