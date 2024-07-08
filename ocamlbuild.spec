@@ -7,7 +7,7 @@
 #
 Name     : ocamlbuild
 Version  : 0.15.0
-Release  : 19
+Release  : 20
 URL      : https://github.com/ocaml/ocamlbuild/archive/0.15.0/ocamlbuild-0.15.0.tar.gz
 Source0  : https://github.com/ocaml/ocamlbuild/archive/0.15.0/ocamlbuild-0.15.0.tar.gz
 Summary  : No detailed summary available
